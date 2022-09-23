@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>Nom</th>
+        {% for size in sizes %}
+            <th>{{ size.name }}</th>
+        {% endfor %}
+    </tr>
+    </thead>
+    <tbody>
+    {% for user in users %}
+    <tr>
+        <td>{{ user.name }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% for score in scores %}
+    <div>{{ score.date }}</div>
+    <div>{{ score.player }}</div>
+    <div>{{ score.duration }}</div>
+    <div>{{ score.height }}</div>
+    <div>{{ score.length }}</div>
+    <div>{{ score.mines }}</div>
+{% endfor %}
+</body>
+</html>
