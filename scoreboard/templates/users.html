@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Users</title>
 </head>
 <body>
 <table>
@@ -17,18 +17,19 @@
     <tbody>
     {% for user in users %}
     <tr>
-        <td>{{ user.name }}</td>
+        <td><a href="/user/{{ user.id }}">{{ user.name }}</a></td>
+        {% for size in sizes %}
+            {%  for score in scores %}
+                {% if score.length == size.length and score.height == size.height and score.mines == size.mines and score.player == user %}
+                    <td>{{ score.duration }}</td>
+                {% else %}
+                    <td>-</td>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
     </tr>
     {% endfor %}
     </tbody>
 </table>
-{% for score in scores %}
-    <div>{{ score.date }}</div>
-    <div>{{ score.player }}</div>
-    <div>{{ score.duration }}</div>
-    <div>{{ score.height }}</div>
-    <div>{{ score.length }}</div>
-    <div>{{ score.mines }}</div>
-{% endfor %}
 </body>
 </html>

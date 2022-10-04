@@ -20,4 +20,9 @@ from scoreboard import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', views.users),
+    path('sizes/', views.sizes),
+    path('addScore/', views.addscore),
+    path('user/<int:userid>/', views.user),
+
+
 ]

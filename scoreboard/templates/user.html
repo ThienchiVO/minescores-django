@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User</title>
+</head>
+<body>
+    <h1>{{ user.name }}</h1>
+    <h2>Grille classique</h2>
+    {% for size in sizes %}
+        <table>
+            <tr>
+                <th>Grille</th>
+                <th>Score</th>
+            </tr>
+            {% for score in scores %}
+
+                    {% if score.length == size.length and score.height == size.height and score.mines == size.mines %}
+                        <tr>
+                            <td><a href="/sizes#{{ size.id }}">{{ size.name }}</a></td>
+                            <td>{{ score.duration }}</td>
+                        </tr>
+                    {% endif %}
+
+            {% endfor %}
+        </table>
+    {% endfor %}
+<h2>Grille personnalisé</h2>
+    <table>
+        <tr>
+            <th>Grille et mines</th>
+            <th>Score</th>
+        </tr>
+        {% for score in scores %}
+            {% for size in sizes %}
+                {% if score.length != size.length or score.height != size.height or score.mines != size.mines %}
+                    <tr>
+                        <td>{{ score.length }}x{{ score.height }} - {{ score.mines }}</td>
+                        <td>{{ score.duration }}</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </table>
+</body>
+</html>

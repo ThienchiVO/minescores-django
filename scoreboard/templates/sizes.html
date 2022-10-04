@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sizes</title>
+</head>
+<body>
+{% for size in sizes %}
+        <h1 id="{{ size.id }}">Top 5 pour les {{ size.name }}</h1>
+        <table>
+        <thead>
+            <tr>
+                <th>Player</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+            {% for score in top5_list.score %}
+                {% if size == score %}
+                    <tr>
+                        <td><a href="/user/{{ user.id }}">{{ user.name }}</a></td>
+                        <td>{{ score.score.duration }}</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+    {% endfor %}
+</body>
+</html>
